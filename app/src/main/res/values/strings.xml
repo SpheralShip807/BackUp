@@ -4,4 +4,7 @@
     <string name="reset_score">Reset score</string>
     <string name="exit">Exit</string>
     <string name="high_score_default">High score: 0</string>
+    <string name="current_score" />
+    <string name="high_score" />
+    <string name="btn_restart" />
 </resources>

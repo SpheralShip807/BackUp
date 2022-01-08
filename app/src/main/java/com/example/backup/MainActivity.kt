@@ -3,7 +3,9 @@ package com.example.backup
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.backup.databinding.ActivityMainBinding
+import com.example.backup.storage.AppPreference
 import java.lang.Exception
 import kotlin.system.exitProcess
 
@@ -20,7 +22,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, GameActivity::class.java))
         }
 
+        binding.btnResetScore.setOnClickListener {
+            val preference=AppPreference(this)
+            preference.clearHighScore()
 
+            binding.tvHighScore.text="High score: ${preference.getHighScore()}"
+
+            Toast.makeText(this,"Score reset successfully",Toast.LENGTH_SHORT).show()
+        }
 
         binding.btnExit.setOnClickListener {
             finish()
